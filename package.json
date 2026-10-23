@@ -1,0 +1,29 @@
+{
+  "name": "una-chat-lab5-seguridad",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Laboratorio 5: validación segura, medios y pruebas de UNA Chat",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "jest tests/unit --runInBand",
+    "test:integration": "jest tests/integration --runInBand --env=node",
+    "test:e2e": "playwright test --project=chromium",
+    "test:e2e:headed": "playwright test --project=chromium --headed",
+    "test:all": "npm test && npm run test:integration && npm run test:e2e",
+    "report": "playwright show-report",
+    "evidence": "node scripts/evidencias.js",
+    "reproduce:original": "node scripts/reproducir-original.js"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "express": "^5.1.0",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "jest": "^30.2.0",
+    "socket.io-client": "^4.8.1",
+    "supertest": "^7.1.4"
+  }
+}

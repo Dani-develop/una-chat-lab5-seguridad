@@ -1,0 +1,46 @@
+[
+  {
+    "title": "Evidencia 2 · Pruebas unitarias",
+    "command": "npm test -- --json --outputFile=evidencias/resultados-unitarias.json",
+    "executed": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "test",
+      "--",
+      "--json",
+      "--outputFile=evidencias/resultados-unitarias.json"
+    ],
+    "channel": "chrome",
+    "started": "2026-10-23T20:05:58.943Z",
+    "exitCode": 0
+  },
+  {
+    "title": "Evidencia 3 · Pruebas de integración",
+    "command": "npm run test:integration -- --json --outputFile=evidencias/resultados-integracion.json",
+    "executed": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "run",
+      "test:integration",
+      "--",
+      "--json",
+      "--outputFile=evidencias/resultados-integracion.json"
+    ],
+    "channel": "chrome",
+    "started": "2026-10-23T20:06:00.416Z",
+    "exitCode": 0
+  },
+  {
+    "title": "Evidencia 4 · Playwright / Chromium (Chrome instalado)",
+    "command": "npm run test:e2e:headed",
+    "executed": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "run",
+      "test:e2e:headed"
+    ],
+    "channel": "chrome",
+    "started": "2026-10-23T20:06:02.230Z",
+    "exitCode": 0
+  }
+]

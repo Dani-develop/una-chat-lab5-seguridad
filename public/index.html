@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UNA Chat | Laboratorio 5</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/socket.io/socket.io.js" defer></script>
+  <script src="/chat.js" defer></script>
+</head>
+<body>
+  <main>
+    <header><span class="badge">UNA · SEGURIDAD INFORMÁTICA</span><h1>UNA Chat</h1>
+      <p>Comparte mensajes, imágenes y videos de forma segura.</p>
+      <p id="connection" role="status">Conectando…</p>
+    </header>
+    <section aria-label="Conversación"><ul id="messages" aria-live="polite"></ul></section>
+    <p id="error" role="alert"></p>
+    <form id="chat-form">
+      <label for="nombre">Nombre</label>
+      <input id="nombre" name="nombre" maxlength="40" autocomplete="nickname" placeholder="Anónimo">
+      <label for="m">Mensaje o URL de un medio</label>
+      <div class="send-row"><input id="m" name="mensaje" maxlength="2000" autocomplete="off" required placeholder="Escribe un mensaje o pega una URL de imagen o video">
+      <button type="submit" disabled>Enviar</button></div>
+      <small>HTTP(S) · JPG, PNG, GIF, WebP, BMP, AVIF · MP4, WebM, OGV · YouTube. Un enlace por mensaje.</small>
+    </form>
+  </main>
+</body>
+</html>

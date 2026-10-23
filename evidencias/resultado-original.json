@@ -1,0 +1,12 @@
+{
+  "fecha": "2026-10-23T20:03:46.194Z",
+  "url": "http://127.0.0.1:3200/",
+  "payload": "<script>alert('Inyección de script');</script>",
+  "dialogs": [
+    {
+      "type": "alert",
+      "message": "Inyección de script"
+    }
+  ],
+  "vulnerable": true
+}

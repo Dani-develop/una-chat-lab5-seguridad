@@ -1,0 +1,15 @@
+$ npm run test:integration -- --json --outputFile=evidencias/resultados-integracion.json
+Inicio UTC: 2026-10-23T20:06:00.416Z
+
+
+> una-chat-lab5-seguridad@1.0.0 test:integration
+> jest tests/integration --runInBand --env=node --json --outputFile=evidencias/resultados-integracion.json
+
+Test Suites: 1 passed, 1 total
+Tests:       12 passed, 12 total
+Snapshots:   0 total
+Time:        0.911 s, estimated 1 s
+Ran all test suites matching tests/integration.
+Test results written to: evidencias\resultados-integracion.json
+
+Finalizado · código de salida 0

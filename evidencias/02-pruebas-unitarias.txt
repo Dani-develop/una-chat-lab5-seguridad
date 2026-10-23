@@ -1,0 +1,15 @@
+$ npm test -- --json --outputFile=evidencias/resultados-unitarias.json
+Inicio UTC: 2026-10-23T20:05:58.943Z
+
+
+> una-chat-lab5-seguridad@1.0.0 test
+> jest tests/unit --runInBand --json --outputFile=evidencias/resultados-unitarias.json
+
+Test Suites: 1 passed, 1 total
+Tests:       65 passed, 65 total
+Snapshots:   0 total
+Time:        0.489 s, estimated 1 s
+Ran all test suites matching tests/unit.
+Test results written to: evidencias\resultados-unitarias.json
+
+Finalizado · código de salida 0
