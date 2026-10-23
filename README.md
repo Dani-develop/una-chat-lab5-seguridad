@@ -100,6 +100,12 @@ No se simulan Socket.IO ni las respuestas multimedia en las pruebas E2E. En
 integración, `jest.spyOn` observa la llamada a `validarMensaje` sin reemplazar su
 implementación; además se verifica la respuesta y la difusión a otro cliente.
 
+El workflow de GitHub Actions está disponible para ejecución manual. En la
+verificación inicial, GitHub impidió iniciar el job con el mensaje: "The job was
+not started because your account is locked due to a billing issue." No ejecutó
+ningún paso. Los resultados y las capturas incluidos corresponden a las tres
+suites ejecutadas localmente; no se atribuyen a GitHub Actions.
+
 ## Resultados y evidencias
 
 Ejecución del 23 de octubre de 2026:
