@@ -6,3 +6,6 @@ tmp/
 *.log
 .env
 .DS_Store
+ci-results/
+evidencias/despliegue/
+tests/unit/pipeline-demo.test.js

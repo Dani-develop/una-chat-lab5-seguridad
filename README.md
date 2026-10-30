@@ -2,6 +2,13 @@
 
 Repositorio: https://github.com/Dani-develop/una-chat-lab5-seguridad
 
+Chat publicado: https://una-chat-lab5-seguridad.onrender.com
+
+La continuación del laboratorio incorpora despliegue en Render y pruebas previas
+con GitHub Actions. La configuración, la explicación del bloqueo por pruebas y
+los pasos para obtener ambas evidencias están en
+[Despliegue con GitHub Actions y Render](docs/despliegue-render.md).
+
 Laboratorio de Seguridad Informática, Universidad Nacional, Campus Nicoya.
 Proyecto desarrollado a partir del ZIP proporcionado para el laboratorio.
 
@@ -100,11 +107,11 @@ No se simulan Socket.IO ni las respuestas multimedia en las pruebas E2E. En
 integración, `jest.spyOn` observa la llamada a `validarMensaje` sin reemplazar su
 implementación; además se verifica la respuesta y la difusión a otro cliente.
 
-El workflow de GitHub Actions está disponible para ejecución manual. En la
-verificación inicial, GitHub impidió iniciar el job con el mensaje: "The job was
-not started because your account is locked due to a billing issue." No ejecutó
-ningún paso. Los resultados y las capturas incluidos corresponden a las tres
-suites ejecutadas localmente; no se atribuyen a GitHub Actions.
+El workflow de pruebas también se puede ejecutar manualmente y es reutilizado
+por `.github/workflows/deploy.yml` antes de cada despliegue. En la verificación
+inicial del 23 de octubre, GitHub impidió iniciar el job por un bloqueo de
+facturación de la cuenta. Los resultados históricos de `evidencias/` corresponden
+a la ejecución local de esa fecha; no se atribuyen a GitHub Actions.
 
 ## Resultados y evidencias
 

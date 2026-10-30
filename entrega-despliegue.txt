@@ -1,0 +1,11 @@
+Chat público
+https://una-chat-lab5-seguridad.onrender.com
+
+Workflow modificado
+https://github.com/Dani-develop/una-chat-lab5-seguridad/blob/main/.github/workflows/deploy.yml
+
+Historial de ejecuciones
+https://github.com/Dani-develop/una-chat-lab5-seguridad/actions/workflows/deploy.yml
+
+Explicación del pipeline y de las dos evidencias requeridas
+https://github.com/Dani-develop/una-chat-lab5-seguridad/blob/main/docs/despliegue-render.md

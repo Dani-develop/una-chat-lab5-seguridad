@@ -1,5 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const path = require('node:path');
+const evidenceDir = path.resolve(process.env.EVIDENCE_DIR || 'evidencias');
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
@@ -18,7 +19,7 @@ test('imagen: se muestra y termina de cargar', async ({ page, baseURL }) => {
   await expect(image).toBeVisible();
   await expect.poll(() => image.evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
   await expect(image).toHaveJSProperty('naturalWidth', 640);
-  await page.screenshot({ path: path.resolve('evidencias/04a-imagen-cargada.jpg'), type: 'jpeg', quality: 90, fullPage: true });
+  await page.screenshot({ path: path.join(evidenceDir, '04a-imagen-cargada.jpg'), type: 'jpeg', quality: 90, fullPage: true });
 });
 
 test('video: carga metadatos y reproduce contenido real', async ({ page, baseURL }) => {
@@ -31,7 +32,7 @@ test('video: carga metadatos y reproduce contenido real', async ({ page, baseURL
   await video.evaluate(element => { element.muted = true; return element.play(); });
   await expect.poll(() => video.evaluate(element => element.currentTime)).toBeGreaterThan(0);
   await video.evaluate(element => element.pause());
-  await page.screenshot({ path: path.resolve('evidencias/04b-video-cargado.jpg'), type: 'jpeg', quality: 90, fullPage: true });
+  await page.screenshot({ path: path.join(evidenceDir, '04b-video-cargado.jpg'), type: 'jpeg', quality: 90, fullPage: true });
 });
 
 test('script del enunciado: rechazo sin alert ni ejecución', async ({ page }) => {
@@ -45,7 +46,7 @@ test('script del enunciado: rechazo sin alert ni ejecución', async ({ page }) =
   await expect(page.locator('#messages script')).toHaveCount(0);
   expect(dialogs).toEqual([]);
   expect(errors).toEqual([]);
-  await page.screenshot({ path: path.resolve('evidencias/04c-script-bloqueado.jpg'), type: 'jpeg', quality: 90, fullPage: true });
+  await page.screenshot({ path: path.join(evidenceDir, '04c-script-bloqueado.jpg'), type: 'jpeg', quality: 90, fullPage: true });
 });
 
 test('inyección por nombre y atributo también se rechaza', async ({ page }) => {

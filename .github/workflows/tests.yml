@@ -1,19 +1,64 @@
 name: Pruebas del laboratorio
-on: workflow_dispatch
+on:
+  workflow_call:
+    inputs:
+      demostrar_fallo:
+        type: boolean
+        default: false
+        required: false
+  workflow_dispatch:
+    inputs:
+      demostrar_fallo:
+        description: Crear una prueba Jest fallida para comprobar el bloqueo
+        type: boolean
+        default: false
+        required: false
+
+permissions:
+  contents: read
+
 jobs:
   tests:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CI: 'true'
+      EVIDENCE_DIR: ci-results/capturas
+      PLAYWRIGHT_JSON_OUTPUT_FILE: ci-results/e2e.json
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Obtener el commit de esta ejecución
+        uses: actions/checkout@v7
         with:
-          node-version: '22'
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Preparar Node.js 24
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
           cache: npm
-      - run: npm ci
-      - run: npx playwright install --with-deps chromium
-      - run: npm run test:all
-      - uses: actions/upload-artifact@v4
+      - name: Instalar dependencias y preparar resultados
+        run: |
+          npm ci
+          mkdir -p ci-results
+      - name: Crear la prueba fallida de demostración
+        if: ${{ inputs.demostrar_fallo == true }}
+        run: node scripts/demostrar-fallo-ci.js
+      - name: Pruebas unitarias
+        run: npm test -- --json --outputFile=ci-results/unitarias.json
+      - name: Pruebas de integración
+        run: npm run test:integration -- --json --outputFile=ci-results/integracion.json
+      - name: Instalar Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Pruebas end-to-end
+        run: npm run test:e2e
+      - name: Guardar resultados y reporte
+        uses: actions/upload-artifact@v7
         if: always()
         with:
-          name: reporte-playwright
-          path: playwright-report/
+          name: resultados-${{ github.run_id }}-${{ github.run_attempt }}
+          if-no-files-found: warn
+          retention-days: 14
+          path: |
+            ci-results/
+            playwright-report/
+            test-results/

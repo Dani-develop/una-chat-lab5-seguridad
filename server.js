@@ -38,7 +38,7 @@ function createChatServer() {
 
 if (require.main === module) {
   const port = Number(process.env.PORT || 3000);
-  const host = process.env.HOST || '127.0.0.1';
+  const host = process.env.HOST || (process.env.RENDER === 'true' ? '0.0.0.0' : '127.0.0.1');
   const chat = createChatServer();
   chat.httpServer.listen(port, host, () => console.log(`UNA Chat: http://${host}:${port}`));
   const shutdown = () => chat.close().then(() => process.exit(0));

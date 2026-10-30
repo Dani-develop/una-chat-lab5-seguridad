@@ -1,0 +1,50 @@
+name: Desplegar chat en Render
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      demostrar_fallo:
+        description: Hacer fallar una prueba real para demostrar el bloqueo del despliegue
+        type: boolean
+        default: false
+        required: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: render-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  pruebas:
+    name: Validar el chat
+    uses: ./.github/workflows/tests.yml
+    with:
+      demostrar_fallo: ${{ github.event_name == 'workflow_dispatch' && inputs.demostrar_fallo == true }}
+
+  deploy:
+    name: Solicitar despliegue en Render
+    needs: pruebas
+    if: ${{ github.ref == 'refs/heads/main' && github.event_name != 'pull_request' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Obtener el mismo commit que pasó las pruebas
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Preparar Node.js 24
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Solicitar despliegue del commit probado
+        env:
+          RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        run: node scripts/deploy-render.js

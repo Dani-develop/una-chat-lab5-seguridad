@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: una-chat-lab5-seguridad
+    runtime: node
+    plan: free
+    repo: https://github.com/Dani-develop/una-chat-lab5-seguridad
+    branch: main
+    buildCommand: npm ci --omit=dev
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeployTrigger: 'off'
+    envVars:
+      - key: NODE_VERSION
+        value: '24'
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
