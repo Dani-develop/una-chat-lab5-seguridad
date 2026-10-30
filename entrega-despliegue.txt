@@ -9,3 +9,18 @@ https://github.com/Dani-develop/una-chat-lab5-seguridad/actions/workflows/deploy
 
 Explicación del pipeline y de las dos evidencias requeridas
 https://github.com/Dani-develop/una-chat-lab5-seguridad/blob/main/docs/despliegue-render.md
+
+Ejecución exitosa: 84 unitarias, 12 integración y 6 E2E; despliegue aprobado
+https://github.com/Dani-develop/una-chat-lab5-seguridad/actions/runs/40982309641/attempts/2
+
+Ejecución con una prueba fallida: 84 aprobadas, 1 fallida intencional; deploy skipped
+https://github.com/Dani-develop/una-chat-lab5-seguridad/actions/runs/41111384372/attempts/1
+
+Commit de ambas evidencias
+c2deb23bc70685863ea9c3ee818527c9283747be
+
+Despliegue verificado en Render: Live, mismo commit, trigger deploy_hook
+dep-dbieh9mk1f9s73eka8n0
+
+Detalle de los resultados
+https://github.com/Dani-develop/una-chat-lab5-seguridad/blob/main/docs/evidencias-despliegue.md

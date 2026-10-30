@@ -6,7 +6,7 @@ Chat publicado: https://una-chat-lab5-seguridad.onrender.com
 
 La continuación del laboratorio incorpora despliegue en Render y pruebas previas
 con GitHub Actions. La configuración, la explicación del bloqueo por pruebas y
-los pasos para obtener ambas evidencias están en
+las dos ejecuciones verificadas están en
 [Despliegue con GitHub Actions y Render](docs/despliegue-render.md).
 
 Laboratorio de Seguridad Informática, Universidad Nacional, Campus Nicoya.

@@ -13,6 +13,20 @@ cumple las pruebas.
 - Ejecuciones: https://github.com/Dani-develop/una-chat-lab5-seguridad/actions/workflows/deploy.yml
 - Servicio: https://dashboard.render.com/web/srv-dbhruqs9v7es738vrmfg
 
+La entrega quedó verificada el **30 de octubre de 2026**. Las dos ejecuciones
+requeridas se pueden revisar directamente:
+
+| Caso | Ejecución de Actions | Resultado |
+| --- | --- | --- |
+| Pruebas aprobadas y despliegue | [40982309641, intento 2](https://github.com/Dani-develop/una-chat-lab5-seguridad/actions/runs/40982309641/attempts/2) | 84 unitarias, 12 de integración y 6 E2E aprobadas; deploy aprobado. |
+| Prueba fallida y despliegue bloqueado | [41111384372, intento 1](https://github.com/Dani-develop/una-chat-lab5-seguridad/actions/runs/41111384372/attempts/1) | 84 unitarias aprobadas y 1 fallida intencional; deploy omitido (`skipped`). |
+
+Ambas ejecuciones utilizan `c2deb23bc70685863ea9c3ee818527c9283747be`.
+Render publicó ese mismo SHA mediante el hook, con estado Live en el despliegue
+`dep-dbieh9mk1f9s73eka8n0`. La ejecución fallida no inició otro despliegue.
+Después se aprobaron las seis pruebas de navegador contra el chat público.
+El detalle y los enlaces están en [Evidencias del despliegue](evidencias-despliegue.md).
+
 Se conserva `main`: el enunciado permite usarla en lugar de `master` siempre que
 coincidan la rama de Render y la del workflow.
 
@@ -126,6 +140,14 @@ código de salida 1; ese resultado local no sustituye las capturas de Actions.
 
 Las capturas `05a-cliente-emisor.jpg` y `05b-cliente-receptor.jpg` muestran el mismo
 mensaje recibido en dos sesiones de navegador independientes del chat público.
+
+El 30 de octubre se repitieron las seis E2E sobre la nueva versión publicada por
+Actions y todas pasaron. La entrega ZIP incluye los JSON de Jest y Playwright
+descargados como artefactos de las dos ejecuciones, los registros reales de los
+jobs, las respuestas de las API y las capturas del chat público. Las dos imágenes
+que resumen Actions y Render son informes generados a partir de esas respuestas;
+no representan capturas de sus interfaces. Los registros y enlaces permiten
+comprobar cada resultado de forma independiente.
 
 Para comprobar el sitio publicado en PowerShell:
 
