@@ -124,6 +124,9 @@ malicioso, rechazo de URL no permitida y comunicación entre dos navegadores.
 La demostración local de la prueba incorrecta produjo una prueba fallida y
 código de salida 1; ese resultado local no sustituye las capturas de Actions.
 
+Las capturas `05a-cliente-emisor.jpg` y `05b-cliente-receptor.jpg` muestran el mismo
+mensaje recibido en dos sesiones de navegador independientes del chat público.
+
 Para comprobar el sitio publicado en PowerShell:
 
 ```powershell

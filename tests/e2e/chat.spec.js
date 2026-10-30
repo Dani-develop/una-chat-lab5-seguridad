@@ -74,5 +74,7 @@ test('dos navegadores reciben el mensaje desde el backend real', async ({ page, 
     await send(page, 'Hola desde el primer navegador');
     await expect(recipient.locator('#messages li')).toContainText('Hola desde el primer navegador');
     await expect(page.locator('#messages li')).toContainText('Hola desde el primer navegador');
+    await page.screenshot({ path: path.join(evidenceDir, '05a-cliente-emisor.jpg'), type: 'jpeg', quality: 90, fullPage: true });
+    await recipient.screenshot({ path: path.join(evidenceDir, '05b-cliente-receptor.jpg'), type: 'jpeg', quality: 90, fullPage: true });
   } finally { await other.close(); }
 });
